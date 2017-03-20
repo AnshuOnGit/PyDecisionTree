@@ -3420,7 +3420,7 @@ class DecisionTree(object):
                     sampling_points_for_feature = [valuerange[0] + histogram_delta * j for j in range(num_of_histogram_bins)]
                     self._sampling_points_for_numeric_feature_dict[feature_name] = sampling_points_for_feature
         if feature_name in self._numeric_features_valuerange_dict:
-            if True:
+            if self._feature_values_how_many_uniques_dict[feature_name] > self._symbolic_to_numeric_cardinality_threshold:
                 sampling_points_for_feature = self._sampling_points_for_numeric_feature_dict[feature_name]
                 counts_at_sampling_points = [0] * len(sampling_points_for_feature)
                 actual_values_for_feature = self._features_and_values_dict[feature_name]
